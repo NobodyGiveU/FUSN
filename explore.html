@@ -1,0 +1,103 @@
+<!-- explore.html: Updated to support state filtering for university search -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Universities - FUSN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo"><h2>FUSN</h2></div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="submit.html" class="nav-link">Submit Profile</a></li>
+                    <li class="nav-item"><a href="explore.html" class="nav-link active">Explore Universities</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="explore-main">
+        <aside class="filter-panel" id="filterPanel">
+            <h3>Filter Universities</h3>
+            <form id="filterForm" autocomplete="off">
+                <div class="filter-group">
+                    <label for="class10gpa">Class 10 GPA</label>
+                    <input type="number" id="class10gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.8">
+                </div>
+                <div class="filter-group">
+                    <label for="class11gpa">Class 11 GPA</label>
+                    <input type="number" id="class11gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.7">
+                </div>
+                <div class="filter-group">
+                    <label for="class12gpa">Class 12 GPA</label>
+                    <input type="number" id="class12gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.9">
+                </div>
+                <div class="filter-group">
+                    <label for="satScore">SAT Score</label>
+                    <input type="number" id="satScore" min="400" max="1600" placeholder="e.g., 1450">
+                </div>
+                <div class="filter-group">
+                    <label for="englishTest">English Test</label>
+                    <select id="englishTest">
+                        <option value="">Select Test</option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="TOEFL">TOEFL</option>
+                        <option value="Duolingo">Duolingo</option>
+                        <option value="PTE">PTE</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="englishScore">English Score</label>
+                    <input type="number" id="englishScore" step="0.1" placeholder="Your score">
+                </div>
+                <div class="filter-group">
+                    <label for="stateFilter">US State</label>
+                    <select id="stateFilter">
+                        <option value="">All States</option>
+                        <!-- States will be populated by JS for maintainability -->
+                    </select>
+                </div>
+                <button type="button" id="resetFilters" class="btn btn-secondary">Reset Filters</button>
+                <button type="button" id="testMIT" class="btn btn-secondary" style="margin-top: 10px;">Test MIT Filter</button>
+            </form>
+        </aside>
+
+        <section class="results-section">
+            <div class="results-header">
+                <div class="active-filters" id="activeFilters">
+                    <!-- Active filter tags will appear here -->
+                </div>
+                <div class="results-summary" id="resultsSummary">
+                    <!-- Results summary will appear here -->
+                </div>
+            </div>
+            <div class="results-grid" id="resultsGrid">
+                <!-- University cards will be rendered here by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FUSN - Foreign University Student Network. Helping Nepali students achieve their dreams.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for I-20 image preview -->
+    <div id="imageModal" class="image-modal" aria-modal="true" role="dialog" tabindex="-1">
+        <span class="close-modal" onclick="closeModal()" aria-label="Close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="I-20 Preview">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

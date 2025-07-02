@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Your Profile - FUSN</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo"><h2>FUSN</h2></div>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="submit.html" class="nav-link active">Submit Profile</a></li>
+          <li class="nav-item"><a href="explore.html" class="nav-link">Explore Universities</a></li>
+        </ul>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="submit-main">
+    <div class="submit-container">
+      <div class="submit-header">
+        <h1>Submit Your University Offer</h1>
+        <p>Help fellow Nepali students by sharing your verified university admission data. Your submission will be reviewed by our admin team before being added to the database.</p>
+      </div>
+
+      <div class="submit-content">
+        <div class="form-card">
+          <form action="https://formsubmit.co/fusn.usa@gmail.com" method="POST" enctype="multipart/form-data" target="_self" id="submitForm">
+            
+            <!-- Academic Information Section -->
+            <div class="form-section">
+              <h3>📚 Academic Information</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="class10gpa">Class 10 GPA</label>
+                  <input type="number" name="class10gpa" id="class10gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.8" />
+                  <small>Your Class 10 GPA (0-4 scale)</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="class11gpa">Class 11 GPA</label>
+                  <input type="number" name="class11gpa" id="class11gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.7" />
+                  <small>Your Class 11 GPA (0-4 scale)</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="class12gpa">Class 12 GPA <span class="required">*</span></label>
+                  <input type="number" name="class12gpa" id="class12gpa" step="0.01" min="0" max="4" placeholder="e.g., 3.9" required />
+                  <small>Your Class 12 GPA (0-4 scale)</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="satScore">SAT Score</label>
+                  <input type="number" name="satScore" id="satScore" min="400" max="1600" placeholder="e.g., 1450" />
+                  <small>Your SAT score (400-1600)</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- English Test Section -->
+            <div class="form-section">
+              <h3>🌍 English Proficiency</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="englishTestType">English Test Type</label>
+                  <select name="englishTestType" id="englishTestType">
+                    <option value="">Select Test Type</option>
+                    <option value="IELTS">IELTS</option>
+                    <option value="TOEFL">TOEFL</option>
+                    <option value="Duolingo">Duolingo English Test</option>
+                    <option value="PTE">PTE Academic</option>
+                  </select>
+                  <small>Type of English proficiency test taken</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="englishScore">English Test Score</label>
+                  <input type="number" name="englishScore" id="englishScore" step="0.1" placeholder="Your score" />
+                  <small>Your test score (e.g., 7.5 for IELTS)</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- University Information Section -->
+            <div class="form-section">
+              <h3>🎓 University Information</h3>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="universityState">University State <span class="required">*</span></label>
+                  <select name="universityState" id="universityState" required>
+                    <option value="">Select a state</option>
+                    <option value="Alabama">Alabama</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Louisiana">Louisiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Maryland">Maryland</option>
+                    <option value="Massachusetts">Massachusetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                  </select>
+                  <small>State where your university is located</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="universityName">University Name <span class="required">*</span></label>
+                  <select name="universityName" id="universityName" required>
+                    <option value="">Search or select your university</option>
+                  </select>
+                  <small>Full name of your university</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="universityCOA">Total Cost of Attendance (USD)</label>
+                  <input type="number" name="universityCOA" id="universityCOA" min="0" placeholder="e.g., 45000" />
+                  <small>Total annual cost including tuition, fees, room & board</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="scholarshipAmount">Scholarship Amount (USD)</label>
+                  <input type="number" name="scholarshipAmount" id="scholarshipAmount" min="0" placeholder="e.g., 15000" />
+                  <small>Total scholarship/financial aid received</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document Upload Section -->
+            <div class="form-section">
+              <h3>📄 Document Upload</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="i20Upload">Upload I-20 Document <span class="required">*</span></label>
+                  <div class="file-upload-container">
+                    <input type="file" name="i20Upload" id="i20Upload" accept="image/*,.pdf" required />
+                    <div class="file-upload-info">
+                      <p><strong>Important:</strong> Please ensure all personal information (name, address, etc.) is redacted from your I-20 before uploading.</p>
+                      <p>Accepted formats: JPG, PNG, PDF (Max 10MB)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Information Section -->
+            <div class="form-section">
+              <h3>💬 Additional Information</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="additionalInfo">Additional Details</label>
+                  <textarea name="additionalInfo" id="additionalInfo" rows="4" placeholder="Share any additional information about your application process, timeline, or tips for other students..."></textarea>
+                  <small>Optional: Share your experience, application timeline, or advice</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- Consent Section -->
+            <div class="form-section">
+              <h3>✅ Consent & Agreement</h3>
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <div class="checkbox-group">
+                    <input type="checkbox" name="consent" id="consent" required />
+                    <label for="consent">
+                      I confirm that all personal information has been redacted from my I-20 document and I agree to share my academic data to help fellow Nepali students. 
+                      <span class="required">*</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden fields for Formsubmit -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New University Submission - FUSN">
+            <input type="hidden" name="_wpcc" value="ACCEPT">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="thankyou.html">
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                <span class="btn-text">Submit Profile</span>
+                <span class="btn-loading" style="display: none;">Submitting...</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Information Sidebar -->
+        <div class="info-sidebar">
+          <div class="info-card">
+            <h3>📋 Submission Guidelines</h3>
+            <ul>
+              <li>Ensure all personal information is redacted from I-20</li>
+              <li>Provide accurate academic information</li>
+              <li>Include complete university details</li>
+              <li>Share helpful additional information</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>🔒 Privacy & Security</h3>
+            <ul>
+              <li>Your personal data is protected</li>
+              <li>Only academic information is shared</li>
+              <li>I-20 documents are securely stored</li>
+              <li>Admin review before publication</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>💡 How You Help</h3>
+            <ul>
+              <li>Guide future Nepali students</li>
+              <li>Provide real admission data</li>
+              <li>Share cost information</li>
+              <li>Build a supportive community</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 FUSN - Foreign University Student Network. Helping Nepali students achieve their dreams.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Initialize Select2 for university search
+      $('#universityName').select2({ 
+        placeholder: 'Search or select your university',
+        allowClear: true,
+        width: '100%'
+      });
+
+      // Load university data
+      fetch('uni.json')
+        .then(response => response.json())
+        .then(data => {
+          const select = $('#universityName');
+          data.forEach(item => {
+            if (item.institution && item.institution.trim()) {
+              select.append(new Option(item.institution, item.institution));
+            }
+          });
+        })
+        .catch(error => {
+          console.error('Failed to load university list:', error);
+        });
+
+      // Form validation and submission handling
+      $('#submitForm').on('submit', function(e) {
+        const submitBtn = $('#submitBtn');
+        const btnText = $('.btn-text');
+        const btnLoading = $('.btn-loading');
+        
+        // Show loading state
+        submitBtn.prop('disabled', true);
+        btnText.hide();
+        btnLoading.show();
+        
+        // Re-enable after 5 seconds in case of error
+        setTimeout(() => {
+          submitBtn.prop('disabled', false);
+          btnText.show();
+          btnLoading.hide();
+        }, 5000);
+      });
+
+      // File upload preview
+      $('#i20Upload').on('change', function() {
+        const file = this.files[0];
+        if (file) {
+          const fileSize = (file.size / 1024 / 1024).toFixed(2);
+          if (fileSize > 10) {
+            alert('File size must be less than 10MB');
+            this.value = '';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
