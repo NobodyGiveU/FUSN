@@ -2394,6 +2394,13 @@ p {
     color: var(--primary-color);
 }
 
+/* Volunteer Promo Section */
+.volunteer-promo {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+}
+
 /* Scholarships Page Styles */
 .scholarship-hero {
     min-height: 100vh;
