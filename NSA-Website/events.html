@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSA Competitions & Events Hub - FUSN</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nsa-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>NSA Events Hub</h2>
+                        <span>Competitions & Cultural Events</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">NSA Directory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="events.html" class="nav-link active">Events Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openEventForm()">
+                        <i class="fas fa-plus"></i>
+                        Submit Event
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="events-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            NSA <span class="highlight">Competitions & Events Hub</span>
+                        </h1>
+                        <p class="hero-description">
+                            Discover upcoming competitions, cultural nights, sports tournaments, and community gatherings 
+                            hosted by Nepalese Student Associations (NSA) chapters nationwide. Connect, compete, and celebrate 
+                            our rich culture together.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="upcomingEvents">0</span>
+                                    <span class="stat-label">Upcoming Events</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalEvents">0</span>
+                                    <span class="stat-label">Total Events</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="participatingUniversities">0</span>
+                                    <span class="stat-label">Universities</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="openEventForm()">
+                                <i class="fas fa-plus"></i>
+                                Submit Your Event
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="scrollToEvents()">
+                                <i class="fas fa-calendar"></i>
+                                View Events
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-trophy"></i>
+                                <span>Competitions</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-music"></i>
+                                <span>Cultural Nights</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-futbol"></i>
+                                <span>Sports</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search & Filters Section -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="search-bar">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="eventSearch" placeholder="Search events by title, description, or location...">
+                        </div>
+                    </div>
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label for="eventTypeFilter">Event Type</label>
+                            <select id="eventTypeFilter">
+                                <option value="">All Types</option>
+                                <option value="competition">Competition</option>
+                                <option value="cultural">Cultural Night</option>
+                                <option value="sports">Sports Tournament</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="conference">Conference</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="stateFilter">State</label>
+                            <select id="stateFilter">
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="universityFilter">University</label>
+                            <select id="universityFilter">
+                                <option value="">All Universities</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="timeFilter">Time Period</label>
+                            <select id="timeFilter">
+                                <option value="upcoming">Upcoming</option>
+                                <option value="past">Past Events</option>
+                                <option value="all">All Events</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section class="events-section" id="upcomingEventsSection">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-check"></i> Upcoming Events</h2>
+                    <p>Don't miss out on these exciting events happening across NSA chapters nationwide</p>
+                </div>
+                
+                <div class="events-grid" id="upcomingEventsGrid">
+                    <!-- Events will be populated by JavaScript -->
+                </div>
+                
+                <div class="no-events" id="noUpcomingEvents" style="display: none;">
+                    <div class="no-events-content">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>No Upcoming Events</h3>
+                        <p>There are no upcoming events at the moment. Be the first to submit an event!</p>
+                        <button class="btn btn-primary" onclick="openEventForm()">
+                            <i class="fas fa-plus"></i>
+                            Submit Event
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Events Section -->
+        <section class="events-section past-events" id="pastEventsSection">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Past Events</h2>
+                    <p>Relive the memories and get inspired by previous successful events</p>
+                </div>
+                
+                <div class="events-grid" id="pastEventsGrid">
+                    <!-- Past events will be populated by JavaScript -->
+                </div>
+                
+                <div class="no-events" id="noPastEvents" style="display: none;">
+                    <div class="no-events-content">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>No Past Events</h3>
+                        <p>No past events have been recorded yet. Start building the history!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Events Section -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Featured Events</h2>
+                    <p>Highlighted events that showcase the best of NSA community activities</p>
+                </div>
+                <div class="featured-grid" id="featuredEventsGrid">
+                    <!-- Featured events will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About NSA Events Hub</h2>
+                        <p>The NSA Events Hub is a centralized platform for Nepalese Student Associations across America to showcase their events, competitions, and cultural programs. Our mission is to strengthen the Nepali student community by promoting collaboration, cultural exchange, and friendly competition.</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </div>
+                                <h3>Easy Event Submission</h3>
+                                <p>Submit your events quickly and easily with our streamlined form process.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Smart Discovery</h3>
+                                <p>Find events by type, location, or university with our advanced filtering system.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Community Building</h3>
+                                <p>Connect with fellow Nepali students and strengthen our community bonds.</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Competition Hub</h3>
+                                <p>Showcase your talents and compete with students from across the nation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about events or need help with submissions? We're here to help!</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Us</h3>
+                            <p>events@nsanetwork.org</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <h3>Submit Event</h3>
+                            <p>Add your event to our platform</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <h3>Get Help</h3>
+                            <p>Support and guidance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Event Submission Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content event-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus-circle"></i> Submit Your Event</h3>
+                <button class="close-btn" onclick="closeEventForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventTitle">Event Title *</label>
+                            <input type="text" id="eventTitle" name="eventTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type *</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Select Event Type</option>
+                                <option value="competition">Competition</option>
+                                <option value="cultural">Cultural Night</option>
+                                <option value="sports">Sports Tournament</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="conference">Conference</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Date *</label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTime">Time *</label>
+                            <input type="time" id="eventTime" name="eventTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="university">University *</label>
+                            <input type="text" id="university" name="university" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description *</label>
+                        <textarea id="eventDescription" name="eventDescription" rows="4" required 
+                                  placeholder="Describe your event, including activities, prizes, and what participants can expect..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registrationLink">Registration Link (Optional)</label>
+                        <input type="url" id="registrationLink" name="registrationLink" 
+                               placeholder="https://example.com/register">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="organizerName">Organizer Name *</label>
+                            <input type="text" id="organizerName" name="organizerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organizerEmail">Organizer Email *</label>
+                            <input type="email" id="organizerEmail" name="organizerEmail" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventPoster">Event Poster (Optional)</label>
+                        <div class="file-upload">
+                            <input type="file" id="eventPoster" name="eventPoster" accept="image/*">
+                            <div class="file-upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Click to upload or drag and drop</span>
+                                <small>PNG, JPG, GIF up to 5MB</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeEventForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Event
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Detail Modal -->
+    <div id="eventDetailModal" class="modal">
+        <div class="modal-content event-detail-modal">
+            <div class="modal-header">
+                <h3 id="detailEventTitle">Event Title</h3>
+                <button class="close-btn" onclick="closeEventDetail()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="event-detail-content">
+                    <div class="event-detail-image">
+                        <img id="detailEventImage" src="" alt="Event Poster">
+                    </div>
+                    <div class="event-detail-info">
+                        <div class="event-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="detailEventDate">Date</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="detailEventTime">Time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="detailEventLocation">Location</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span id="detailEventType">Type</span>
+                            </div>
+                        </div>
+                        <div class="event-description">
+                            <h4>Event Description</h4>
+                            <p id="detailEventDescription">Description</p>
+                        </div>
+                        <div class="event-organizer">
+                            <h4>Organizer</h4>
+                            <p id="detailOrganizerName">Organizer Name</p>
+                            <a href="mailto:" id="detailOrganizerEmail">organizer@email.com</a>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" id="detailRegistrationLink" class="btn btn-primary" target="_blank" style="display: none;">
+                                <i class="fas fa-external-link-alt"></i>
+                                Register Now
+                            </a>
+                            <button class="btn btn-secondary" onclick="closeEventDetail()">
+                                <i class="fas fa-times"></i>
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>NSA Events Hub</span>
+                    </div>
+                    <p>Connecting Nepali students through events, competitions, and cultural celebrations</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">NSA Directory</a></li>
+                        <li><a href="#upcomingEventsSection">Upcoming Events</a></li>
+                        <li><a href="#pastEventsSection">Past Events</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Events Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="events.js"></script>
+</body>
+</html> 

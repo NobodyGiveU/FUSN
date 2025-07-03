@@ -1556,3 +1556,796 @@ footer {
     padding: 0.75rem;
   }
 }
+
+/* === NSA Page Styles === */
+.nsa-main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2rem 0;
+}
+
+.nsa-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nsa-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.nsa-header h1 {
+  color: #e63946;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #e63946, #a8dadc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nsa-header p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Enhanced Hero Section */
+.nsa-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding: 3rem 0;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1d3557;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #457b9d;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  min-width: 120px;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e63946;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.hero-visual {
+  position: relative;
+  height: 400px;
+}
+
+.floating-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-card {
+  position: absolute;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.floating-card:hover {
+  transform: scale(1.05);
+}
+
+.floating-card i {
+  font-size: 2rem;
+  color: #e63946;
+}
+
+.floating-card span {
+  font-weight: 600;
+  color: #333;
+}
+
+.card-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.card-2 {
+  top: 50%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.card-3 {
+  bottom: 20%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Search Section */
+.search-section {
+  margin-bottom: 3rem;
+}
+
+.search-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.search-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-header h2 {
+  color: #1d3557;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.search-header h2 i {
+  color: #e63946;
+}
+
+.search-header p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.search-input-group {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 0.5rem;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  gap: 1rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.search-input-group:focus-within {
+  border-color: #e63946;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+  background: white;
+}
+
+.search-icon {
+  color: #666;
+  margin: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  outline: none;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Datalist dropdown styling */
+.search-input::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.search-input::-webkit-list-button {
+  display: none;
+}
+
+/* Custom dropdown arrow */
+.search-input-group {
+  position: relative;
+}
+
+.search-input-group::after {
+  content: '▼';
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.search-btn:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+}
+
+.search-tips {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  border-left: 3px solid #e63946;
+}
+
+.tip-item i {
+  color: #e63946;
+  font-size: 1rem;
+}
+
+/* Results Section */
+.results-section {
+  margin-bottom: 4rem;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.results-summary {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.results-summary strong {
+  color: #e63946;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.view-btn {
+  background: white;
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.view-btn.active {
+  background: #e63946;
+  color: white;
+  border-color: #e63946;
+}
+
+.view-btn:hover {
+  border-color: #e63946;
+  color: #e63946;
+}
+
+.view-btn.active:hover {
+  color: white;
+}
+
+/* NSA Grid */
+.nsa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.nsa-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.nsa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(230, 57, 70, 0.15);
+}
+
+.nsa-card-header {
+  background: linear-gradient(135deg, #e63946, #a8dadc);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.nsa-logo {
+  background: rgba(255, 255, 255, 0.2);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.nsa-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.nsa-card-body {
+  padding: 1.5rem;
+}
+
+.nsa-card-body h3 {
+  color: #e63946;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.university-name {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.state {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.nsa-contact {
+  margin-bottom: 1.5rem;
+}
+
+.nsa-contact > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.nsa-contact i {
+  color: #e63946;
+  width: 20px;
+  margin-right: 0.75rem;
+}
+
+.nsa-contact a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nsa-contact a:hover {
+  color: #e63946;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-link.facebook {
+  background: #1877f2;
+}
+
+.social-link.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.youtube {
+  background: #ff0000;
+}
+
+.social-link.tiktok {
+  background: #000000;
+}
+
+.social-link.linkedin {
+  background: #0077b5;
+}
+
+.social-link.twitter {
+  background: #1da1f2;
+}
+
+.social-link.discord {
+  background: #5865f2;
+}
+
+.social-link.groupme {
+  background: #00aff0;
+}
+
+.social-link.linktree {
+  background: #39e09b;
+}
+
+.social-link.website {
+  background: #6c757d;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* NSA List View */
+.nsa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.nsa-list-item {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nsa-list-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.15);
+}
+
+.nsa-list-header {
+  background: linear-gradient(135deg, #e63946, #a8dadc);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: white;
+}
+
+.nsa-list-header .nsa-logo {
+  width: 70px;
+  height: 70px;
+  font-size: 1.4rem;
+}
+
+.nsa-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.nsa-info .university-name {
+  margin: 0 0 0.25rem 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nsa-info .members {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.nsa-list-content {
+  padding: 1.5rem;
+}
+
+.nsa-list-content .description {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.nsa-contact {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.contact-info i {
+  color: #e63946;
+  width: 20px;
+  margin-right: 0.75rem;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-links .social-link {
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Popular Universities Section */
+.popular-section {
+  margin-top: 4rem;
+}
+
+.popular-section h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.popular-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.popular-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.15);
+  border-color: #e63946;
+}
+
+.popular-logo {
+  background: linear-gradient(135deg, #e63946, #a8dadc);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0 auto 1rem;
+}
+
+.popular-card h3 {
+  color: #e63946;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.popular-card p {
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* NSA Page Responsive Design */
+@media (max-width: 768px) {
+  .nsa-container {
+    padding: 0 1rem;
+  }
+  
+  .nsa-header h1 {
+    font-size: 2rem;
+  }
+  
+  .search-card {
+    padding: 1.5rem;
+  }
+  
+  .search-input-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .view-toggle {
+    justify-content: center;
+  }
+  
+  .nsa-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nsa-list-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .nsa-contact {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .popular-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .nsa-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .search-card {
+    padding: 1rem;
+  }
+  
+  .nsa-card-body,
+  .nsa-list-content {
+    padding: 1rem;
+  }
+  
+  .nsa-card-header,
+  .nsa-list-header {
+    padding: 1rem;
+  }
+  
+  .popular-card {
+    padding: 1rem;
+  }
+}
