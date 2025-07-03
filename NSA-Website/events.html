@@ -24,16 +24,13 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">NSA Directory</a>
+                        <a href="index.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="events.html" class="nav-link active">Events Hub</a>
+                        <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -42,7 +39,7 @@
                         Submit Event
                     </button>
                 </div>
-                <div class="hamburger">
+                <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -50,6 +47,75 @@
             </div>
         </nav>
     </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link active">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <main>
         <!-- Hero Section -->

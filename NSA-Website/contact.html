@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NSA Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nsa-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>NSA Network</h2>
+                        <span>Nepali Student Associations</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openSubmitForm()">
+                        <i class="fas fa-plus"></i>
+                        Add NSA
+                    </button>
+                </div>
+                <div class="hamburger" onclick="toggleSidebar()">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Get in <span class="highlight">Touch</span>
+                        </h1>
+                        <p class="hero-description">
+                            Have questions about NSA Network or need help with your chapter? We'd love to hear from you! 
+                            Our team is here to support the Nepali student community.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Support</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">< 24h</span>
+                                    <span class="stat-label">Response Time</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Community Focused</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-comments"></i>
+                                <span>Chat</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-phone"></i>
+                                <span>Call</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods Section -->
+        <section class="contact-methods">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How to Reach Us</h2>
+                    <p>Multiple ways to connect with our team and get the support you need</p>
+                </div>
+                
+                <div class="contact-methods-grid">
+                    <div class="contact-method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Send us a detailed message and we'll get back to you within 24 hours.</p>
+                        <a href="mailto:contact@nsanetwork.org" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            contact@nsanetwork.org
+                        </a>
+                    </div>
+                    
+                    <div class="contact-method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Add Your NSA</h3>
+                        <p>Submit your NSA chapter information to be included in our network.</p>
+                        <button class="btn btn-primary" onclick="openSubmitForm()">
+                            <i class="fas fa-plus"></i>
+                            Submit NSA
+                        </button>
+                    </div>
+                    
+                    <div class="contact-method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <h3>Submit Event</h3>
+                        <p>Add your events to our Events Hub to reach the broader community.</p>
+                        <a href="events.html" class="btn btn-primary">
+                            <i class="fas fa-calendar"></i>
+                            Submit Event
+                        </a>
+                    </div>
+                    
+                    <div class="contact-method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3>Report Issues</h3>
+                        <p>Found a bug or have suggestions? Help us improve the platform.</p>
+                        <a href="mailto:support@nsanetwork.org" class="btn btn-primary">
+                            <i class="fas fa-bug"></i>
+                            Report Issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-container">
+                    <div class="form-content">
+                        <h2>Send Us a Message</h2>
+                        <p>Have a specific question or need assistance? Fill out the form below and we'll respond as soon as possible.</p>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Full Name *</label>
+                                    <input type="text" id="contactName" name="contactName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address *</label>
+                                    <input type="email" id="contactEmail" name="contactEmail" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactSubject">Subject *</label>
+                                <select id="contactSubject" name="contactSubject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="nsa-submission">NSA Chapter Submission</option>
+                                    <option value="event-submission">Event Submission</option>
+                                    <option value="technical-support">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" name="contactMessage" rows="6" required 
+                                          placeholder="Please provide details about your inquiry..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info-sidebar">
+                        <div class="info-card">
+                            <h3>Contact Information</h3>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p>contact@nsanetwork.org</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Response Time</strong>
+                                    <p>Within 24 hours</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>Website</strong>
+                                    <p>nsanetwork.org</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>Quick Links</h3>
+                            <ul class="quick-links">
+                                <li><a href="search.html"><i class="fas fa-search"></i> Find NSA Chapters</a></li>
+                                <li><a href="map.html"><i class="fas fa-map"></i> View Map</a></li>
+                                <li><a href="events.html"><i class="fas fa-calendar"></i> Events Hub</a></li>
+                                <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>Follow Us</h3>
+                            <div class="social-links-large">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Quick answers to common questions about NSA Network</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I add my NSA chapter to the network?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can add your NSA chapter by clicking the "Add NSA" button in the navigation or using the submission form. We'll review your submission and add it to our database within 48 hours.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can I submit an event to the Events Hub?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Visit the Events Hub page and click "Submit Event" to add your competition, cultural night, or other community event. Include all relevant details and we'll feature it on our platform.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is NSA Network free to use?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! NSA Network is completely free for all users. We're committed to serving the Nepali student community without any cost barriers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I update information for my NSA chapter?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Send us an email at contact@nsanetwork.org with the updated information for your NSA chapter. Include the university name and the changes you'd like to make.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I volunteer for NSA Network?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We welcome volunteers to help expand our network. Contact us to learn about volunteer opportunities in your area.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How accurate is the information on the platform?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We strive to maintain accurate and up-to-date information. All submissions are reviewed, and we regularly verify contact details and social media links.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Submit Modal -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Your NSA Chapter</h3>
+                <button class="close-btn" onclick="closeSubmitForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="nsaForm">
+                    <div class="form-group">
+                        <label for="nsaName">NSA Name</label>
+                        <input type="text" id="nsaName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityName">University Name</label>
+                        <input type="text" id="universityName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City, State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="url" id="instagram" placeholder="https://instagram.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="url" id="facebook" placeholder="https://facebook.com/...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeSubmitForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-users"></i>
+                        <span>NSA Network</span>
+                    </div>
+                    <p>Connecting Nepali students across American universities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Find NSA</a></li>
+                        <li><a href="map.html">Map View</a></li>
+                        <li><a href="events.html">Events Hub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    answer.style.maxHeight = '0';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSA News & Announcements - NSA Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="news.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">NSA Directory</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link active">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="news-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            NSA <span class="highlight">News & Announcements</span>
+                        </h1>
+                        <p class="hero-description">
+                            Stay informed about the latest news, updates, and announcements from NSA chapters nationwide. 
+                            Get real-time updates on events, achievements, and community happenings.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalArticles">0</span>
+                                    <span class="stat-label">Articles</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="activeChapters">0</span>
+                                    <span class="stat-label">Active Chapters</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="thisMonth">0</span>
+                                    <span class="stat-label">This Month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="openNewsForm()">
+                                <i class="fas fa-plus"></i>
+                                Submit News
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="scrollToFeed()">
+                                <i class="fas fa-rss"></i>
+                                View Latest News
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Latest News</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-bell"></i>
+                                <span>Stay Updated</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-share"></i>
+                                <span>Share Stories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Submission Section -->
+        <section class="news-submission">
+            <div class="container">
+                <div class="submission-content">
+                    <div class="submission-header">
+                        <h2>Share Your News</h2>
+                        <p>Have news, announcements, or updates from your NSA chapter? Share them with the community!</p>
+                    </div>
+                    <form id="newsForm" class="news-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newsTitle">Title *</label>
+                                <input type="text" id="newsTitle" name="title" required placeholder="Enter news title">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsCategory">Category *</label>
+                                <select id="newsCategory" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="announcement">Announcement</option>
+                                    <option value="event">Event Update</option>
+                                    <option value="achievement">Achievement</option>
+                                    <option value="scholarship">Scholarship</option>
+                                    <option value="competition">Competition</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="chapterName">Chapter Name *</label>
+                                <input type="text" id="chapterName" name="chapter" required placeholder="Your NSA chapter name">
+                            </div>
+                            <div class="form-group">
+                                <label for="universityName">University *</label>
+                                <input type="text" id="universityName" name="university" required placeholder="University name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsSummary">Short Summary *</label>
+                            <textarea id="newsSummary" name="summary" rows="3" required placeholder="Brief summary of your news (max 200 characters)"></textarea>
+                            <div class="char-count">
+                                <span id="summaryCount">0</span>/200
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsContent">Full Content *</label>
+                            <textarea id="newsContent" name="content" rows="8" required placeholder="Write your full news article here..."></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">Contact Email</label>
+                                <input type="email" id="contactEmail" name="email" placeholder="your-email@university.edu">
+                            </div>
+                            <div class="form-group">
+                                <label for="publishDate">Publish Date</label>
+                                <input type="date" id="publishDate" name="publishDate">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newsImage">Featured Image (Optional)</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="newsImage" name="image" accept="image/*">
+                                <label for="newsImage" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Choose an image or drag it here</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetNewsForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit News
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Feed Section -->
+        <section class="news-feed" id="newsFeed">
+            <div class="container">
+                <div class="feed-layout">
+                    <!-- Main Content -->
+                    <div class="feed-main">
+                        <div class="feed-header">
+                            <h2>Latest News & Updates</h2>
+                            <div class="feed-controls">
+                                <div class="search-filters">
+                                    <div class="search-group">
+                                        <input type="text" id="newsSearch" placeholder="Search news...">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="filter-group">
+                                        <select id="categoryFilter">
+                                            <option value="">All Categories</option>
+                                            <option value="announcement">Announcements</option>
+                                            <option value="event">Event Updates</option>
+                                            <option value="achievement">Achievements</option>
+                                            <option value="scholarship">Scholarships</option>
+                                            <option value="competition">Competitions</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <select id="universityFilter">
+                                            <option value="">All Universities</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <select id="dateFilter">
+                                            <option value="">All Time</option>
+                                            <option value="today">Today</option>
+                                            <option value="week">This Week</option>
+                                            <option value="month">This Month</option>
+                                            <option value="year">This Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="view-toggle">
+                                    <button class="view-btn active" data-view="list" onclick="switchNewsView('list')">
+                                        <i class="fas fa-list"></i>
+                                        List
+                                    </button>
+                                    <button class="view-btn" data-view="grid" onclick="switchNewsView('grid')">
+                                        <i class="fas fa-th"></i>
+                                        Grid
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-results">
+                            <div class="results-info">
+                                <span id="filteredResults">0</span> articles found
+                            </div>
+                        </div>
+                        
+                        <div class="news-list" id="newsList">
+                            <!-- News articles will be populated here -->
+                        </div>
+                        
+                        <div class="news-grid" id="newsGrid" style="display: none;">
+                            <!-- Grid view will be populated here -->
+                        </div>
+                        
+                        <div class="load-more-container">
+                            <button class="btn btn-secondary" id="loadMoreBtn" onclick="loadMoreNews()">
+                                <i class="fas fa-plus"></i>
+                                Load More Articles
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar -->
+                    <aside class="news-sidebar">
+                        <!-- Featured Announcements -->
+                        <div class="sidebar-widget">
+                            <h3>Featured Announcements</h3>
+                            <div class="featured-news" id="featuredNews">
+                                <!-- Featured news will be populated here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Links -->
+                        <div class="sidebar-widget">
+                            <h3>Quick Links</h3>
+                            <div class="quick-links">
+                                <a href="events.html" class="quick-link">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Events Hub</span>
+                                </a>
+                                <a href="scholarships.html" class="quick-link">
+                                    <i class="fas fa-award"></i>
+                                    <span>Scholarships</span>
+                                </a>
+                                <a href="alumni.html" class="quick-link">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <span>Alumni Stories</span>
+                                </a>
+                                <a href="mentorship.html" class="quick-link">
+                                    <i class="fas fa-hands-helping"></i>
+                                    <span>Mentorship</span>
+                                </a>
+                                <a href="resources.html" class="quick-link">
+                                    <i class="fas fa-book"></i>
+                                    <span>Resources</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Subscribe Widget -->
+                        <div class="sidebar-widget">
+                            <h3>Stay Updated</h3>
+                            <div class="subscribe-widget">
+                                <p>Get the latest NSA news delivered to your inbox</p>
+                                <form id="subscribeForm" class="subscribe-form">
+                                    <div class="form-group">
+                                        <input type="email" id="subscribeEmail" placeholder="Enter your email" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-full">
+                                        <i class="fas fa-envelope"></i>
+                                        Subscribe
+                                    </button>
+                                </form>
+                                <div class="subscribe-options">
+                                    <a href="#" class="rss-link">
+                                        <i class="fas fa-rss"></i>
+                                        RSS Feed
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Categories Widget -->
+                        <div class="sidebar-widget">
+                            <h3>Categories</h3>
+                            <div class="categories-list" id="categoriesList">
+                                <!-- Categories will be populated here -->
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="news-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Share Your Chapter's Story</h2>
+                        <p>Help keep the NSA community connected and informed by sharing news, achievements, and updates from your chapter. Your stories inspire and unite our community.</p>
+                        <div class="cta-features">
+                            <div class="cta-feature">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Easy Submission</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Reach Community</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-bell"></i>
+                                <span>Stay Connected</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-action">
+                        <button class="btn btn-primary btn-large" onclick="openNewsForm()">
+                            <i class="fas fa-plus"></i>
+                            Submit News
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- News Article Modal -->
+    <div class="modal" id="newsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="modalNewsTitle">News Article</h3>
+                <button class="close-modal" id="closeNewsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalNewsBody">
+                <!-- News article content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit News Modal -->
+    <div class="modal" id="submitNewsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Submit News Article</h3>
+                <button class="close-modal" id="closeSubmitNewsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="modalNewsForm" class="news-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modalNewsTitle">Title *</label>
+                            <input type="text" id="modalNewsTitle" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalNewsCategory">Category *</label>
+                            <select id="modalNewsCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="announcement">Announcement</option>
+                                <option value="event">Event Update</option>
+                                <option value="achievement">Achievement</option>
+                                <option value="scholarship">Scholarship</option>
+                                <option value="competition">Competition</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modalChapterName">Chapter Name *</label>
+                            <input type="text" id="modalChapterName" name="chapter" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalUniversityName">University *</label>
+                            <input type="text" id="modalUniversityName" name="university" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalNewsSummary">Short Summary *</label>
+                        <textarea id="modalNewsSummary" name="summary" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalNewsContent">Full Content *</label>
+                        <textarea id="modalNewsContent" name="content" rows="8" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modalContactEmail">Contact Email</label>
+                            <input type="email" id="modalContactEmail" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalPublishDate">Publish Date</label>
+                            <input type="date" id="modalPublishDate" name="publishDate">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeNewsForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit News</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-users"></i>
+                        <span>NSA Network</span>
+                    </div>
+                    <p>Connecting Nepali students across American universities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Find NSA</a></li>
+                        <li><a href="chapter-map.html">Chapter Map</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="news.js"></script>
+</body>
+</html> 

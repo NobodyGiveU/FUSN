@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship Directory - NSA Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nsa-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>NSA Network</h2>
+                        <span>Nepali Student Associations</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openSubmitForm()">
+                        <i class="fas fa-plus"></i>
+                        Add NSA
+                    </button>
+                </div>
+                <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link active">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="mentorship-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="highlight">Mentorship Directory</span>
+                        </h1>
+                        <p class="hero-description">
+                            Find guidance and support from experienced students and alumni ready to help you succeed. 
+                            Connect with mentors who understand your journey and can provide valuable insights for your 
+                            academic and professional growth in the United States.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalMentors">0</span>
+                                    <span class="stat-label">Active Mentors</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalUniversities">0</span>
+                                    <span class="stat-label">Universities</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalConnections">0</span>
+                                    <span class="stat-label">Mentorship Connections</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="openMentorForm()">
+                                <i class="fas fa-plus"></i>
+                                Become a Mentor
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="scrollToMentors()">
+                                <i class="fas fa-search"></i>
+                                Find Mentors
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Academic Support</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Career Guidance</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-home"></i>
+                                <span>Housing Advice</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Mentors Section -->
+        <section class="featured-mentors">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Mentors</h2>
+                    <p>Experienced mentors ready to guide you on your journey</p>
+                </div>
+                
+                <div class="featured-grid" id="featuredMentors">
+                    <!-- Featured mentors will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters Section -->
+        <section class="search-filters-section">
+            <div class="container">
+                <div class="search-filters-container">
+                    <div class="search-group">
+                        <label for="mentorSearch">Search Mentors</label>
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="mentorSearch" placeholder="Search by name, university, or field of study...">
+                        </div>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <div class="filter-item">
+                            <label for="universityFilter">University</label>
+                            <select id="universityFilter">
+                                <option value="">All Universities</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="fieldFilter">Field of Study</label>
+                            <select id="fieldFilter">
+                                <option value="">All Fields</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="yearFilter">Graduation Year</label>
+                            <select id="yearFilter">
+                                <option value="">All Years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="mentorshipFilter">Areas of Mentorship</label>
+                            <select id="mentorshipFilter">
+                                <option value="">All Areas</option>
+                                <option value="academic">Academic Support</option>
+                                <option value="career">Career Guidance</option>
+                                <option value="housing">Housing Advice</option>
+                                <option value="visa">Visa & Immigration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="main-content-section">
+            <div class="container">
+                <div class="content-layout">
+                    <!-- Mentors Directory -->
+                    <div class="mentors-main">
+                        <div class="section-header">
+                            <h2>All Mentors</h2>
+                            <p>Connect with experienced students and alumni across the United States</p>
+                        </div>
+                        
+                        <div class="results-info">
+                            <span id="mentorResultsCount">0</span> mentors found
+                        </div>
+                        
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" onclick="switchView('grid')">
+                                <i class="fas fa-th"></i>
+                                Grid View
+                            </button>
+                            <button class="view-btn" data-view="list" onclick="switchView('list')">
+                                <i class="fas fa-list"></i>
+                                List View
+                            </button>
+                        </div>
+                        
+                        <div class="mentors-grid" id="mentorsGrid">
+                            <!-- Mentors will be populated here -->
+                        </div>
+                        
+                        <div class="mentors-list" id="mentorsList" style="display: none;">
+                            <!-- List view will be populated here -->
+                        </div>
+                        
+                        <div class="load-more-container">
+                            <button class="btn btn-secondary" id="loadMoreBtn" onclick="loadMoreMentors()">
+                                <i class="fas fa-plus"></i>
+                                Load More Mentors
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar with Resources -->
+                    <div class="mentors-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Mentorship Resources</h3>
+                            <div class="resource-cards">
+                                <div class="resource-card">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <h4>Getting Started Guide</h4>
+                                    <p>Learn how to make the most of your mentorship relationship and set clear goals.</p>
+                                    <a href="#" class="resource-link">Read Guide</a>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h4>Communication Tips</h4>
+                                    <p>Best practices for effective communication with your mentor.</p>
+                                    <a href="#" class="resource-link">View Tips</a>
+                                </div>
+                                
+                                <div class="resource-card">
+                                    <div class="resource-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>Meeting Guidelines</h4>
+                                    <p>How to structure and prepare for productive mentorship meetings.</p>
+                                    <a href="#" class="resource-link">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h3>Mentorship Benefits</h3>
+                            <div class="benefits-list">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Personalized guidance for your academic journey</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Career insights and networking opportunities</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Cultural adaptation and community support</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Practical advice for daily challenges</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h3>For Mentors</h3>
+                            <div class="mentor-info">
+                                <p>Share your experience and help fellow Nepali students succeed. Your guidance can make a significant difference in someone's journey.</p>
+                                <button class="btn btn-primary btn-full" onclick="openMentorForm()">
+                                    <i class="fas fa-plus"></i>
+                                    Register as Mentor
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="mentorship-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Ready to Make a Difference?</h2>
+                        <p>Join our mentorship program and help incoming Nepali students navigate their academic and personal journey in the United States. Your experience and guidance can inspire the next generation.</p>
+                        <div class="cta-features">
+                            <div class="cta-feature">
+                                <i class="fas fa-heart"></i>
+                                <span>Give Back</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-network-wired"></i>
+                                <span>Build Network</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-star"></i>
+                                <span>Make Impact</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-action">
+                        <button class="btn btn-primary btn-large" onclick="openMentorForm()">
+                            <i class="fas fa-plus"></i>
+                            Become a Mentor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mentor Registration Modal -->
+    <div id="mentorModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Register as a Mentor</h3>
+                <button class="close-btn" onclick="closeMentorForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="mentorForm" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University *</label>
+                            <input type="text" id="university" name="university" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="graduationYear">Graduation Year (or Expected) *</label>
+                            <select id="graduationYear" name="graduationYear" required>
+                                <option value="">Select Year</option>
+                                <!-- Years will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fieldOfStudy">Field of Study *</label>
+                            <input type="text" id="fieldOfStudy" name="fieldOfStudy" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Areas of Mentorship *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="academicSupport" name="mentorshipAreas" value="academic">
+                                <label for="academicSupport">Academic Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="careerGuidance" name="mentorshipAreas" value="career">
+                                <label for="careerGuidance">Career Guidance</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="housingAdvice" name="mentorshipAreas" value="housing">
+                                <label for="housingAdvice">Housing Advice</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="visaImmigration" name="mentorshipAreas" value="visa">
+                                <label for="visaImmigration">Visa & Immigration</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="other" name="mentorshipAreas" value="other">
+                                <label for="other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="shortBio">Short Bio *</label>
+                        <textarea id="shortBio" name="shortBio" rows="6" required 
+                                  placeholder="Tell us about your background, experience, and what you can offer as a mentor..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="linkedinUrl">LinkedIn URL</label>
+                            <input type="url" id="linkedinUrl" name="linkedinUrl" placeholder="https://linkedin.com/in/...">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profilePhoto">Profile Photo</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
+                            <div class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Choose a photo or drag it here</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeMentorForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Register as Mentor
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentor Profile Detail Modal -->
+    <div id="mentorDetailModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="mentorDetailTitle">Mentor Profile</h3>
+                <button class="close-btn" onclick="closeMentorDetail()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="mentorDetailContent">
+                <!-- Mentor details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Modal (for NSA submissions) -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Your NSA Chapter</h3>
+                <button class="close-btn" onclick="closeSubmitForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="nsaForm">
+                    <div class="form-group">
+                        <label for="nsaName">NSA Name</label>
+                        <input type="text" id="nsaName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityName">University Name</label>
+                        <input type="text" id="universityName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City, State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="url" id="instagram" placeholder="https://instagram.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="url" id="facebook" placeholder="https://facebook.com/...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeSubmitForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-users"></i>
+                        <span>NSA Network</span>
+                    </div>
+                    <p>Connecting Nepali students across American universities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Find NSA</a></li>
+                        <li><a href="map.html">Map View</a></li>
+                        <li><a href="events.html">Events Hub</a></li>
+                        <li><a href="alumni.html">Alumni Spotlight</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="mentorship.html">Mentorship</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="mentorship.js"></script>
+</body>
+</html> 

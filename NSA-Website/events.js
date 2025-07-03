@@ -191,14 +191,7 @@ class NSAEventsHub {
         const fileInput = document.getElementById('eventPoster');
         fileInput.addEventListener('change', (e) => this.handleFileUpload(e));
 
-        // Mobile menu
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+        // Mobile menu - removed old mobile menu handling since we're using sidebar now
     }
 
     handleFilters() {
@@ -644,4 +637,22 @@ if (!document.querySelector('#notification-styles')) {
     styleSheet.id = 'notification-styles';
     styleSheet.textContent = notificationStyles;
     document.head.appendChild(styleSheet);
+}
+
+// Sidebar toggle function
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    
+    if (sidebar && overlay) {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('open');
+        
+        // Prevent body scroll when sidebar is open
+        if (sidebar.classList.contains('open')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
 } 

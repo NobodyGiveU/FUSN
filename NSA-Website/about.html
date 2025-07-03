@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About NSA Network - Nepali Student Associations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nsa-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>NSA Network</h2>
+                        <span>Nepali Student Associations</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openSubmitForm()">
+                        <i class="fas fa-plus"></i>
+                        Add NSA
+                    </button>
+                </div>
+                <div class="hamburger" onclick="toggleSidebar()">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            About <span class="highlight">NSA Network</span>
+                        </h1>
+                        <p class="hero-description">
+                            The NSA Network is a comprehensive platform connecting Nepali students across American universities. 
+                            Our mission is to foster community, share resources, and support the academic and social journey 
+                            of Nepali students in the United States.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalUniversities">0</span>
+                                    <span class="stat-label">Universities</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalStates">0</span>
+                                    <span class="stat-label">States</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalNSAs">0</span>
+                                    <span class="stat-label">NSA Chapters</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-heart"></i>
+                                <span>Community</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Education</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-globe"></i>
+                                <span>Network</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="container">
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h2>Our Mission</h2>
+                        <p>To create a unified platform that connects Nepali students across American universities, fostering a sense of community, cultural preservation, and mutual support. We believe in the power of collective knowledge and shared experiences to help every Nepali student thrive in their academic journey.</p>
+                        
+                        <div class="mission-values">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3>Community Support</h3>
+                                <p>Building strong networks of support among Nepali students</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-culture"></i>
+                                </div>
+                                <h3>Cultural Preservation</h3>
+                                <p>Maintaining and celebrating our rich Nepali heritage</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3>Knowledge Sharing</h3>
+                                <p>Facilitating the exchange of experiences and resources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Offer</h2>
+                    <p>Comprehensive tools and resources to connect and empower the Nepali student community</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Easy Discovery</h3>
+                        <p>Find NSA chapters at universities nationwide with our comprehensive search and filtering tools.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Visual Map</h3>
+                        <p>Explore NSA locations geographically with our interactive map view.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Social Connect</h3>
+                        <p>Connect directly through social media platforms and contact information.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Community Growth</h3>
+                        <p>Help expand the network by adding new NSA chapters to our database.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Events Hub</h3>
+                        <p>Discover and participate in competitions, cultural events, and community gatherings.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Access the network from anywhere with our responsive design.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-content">
+                    <div class="story-text">
+                        <h2>Our Story</h2>
+                        <p>The NSA Network was born from a simple observation: Nepali students across American universities were facing similar challenges but had limited ways to connect and share resources. What started as a small initiative to map existing NSA chapters has grown into a comprehensive platform serving thousands of Nepali students nationwide.</p>
+                        
+                        <p>Today, we're proud to support a vibrant community of Nepali students who are not just pursuing their academic dreams but also preserving their cultural heritage and building lasting friendships across university boundaries.</p>
+                        
+                        <div class="story-milestones">
+                            <div class="milestone">
+                                <div class="milestone-year">2020</div>
+                                <div class="milestone-text">Project inception and initial research</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-year">2021</div>
+                                <div class="milestone-text">First 50 NSA chapters mapped</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-year">2022</div>
+                                <div class="milestone-text">Interactive map and search features launched</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-year">2023</div>
+                                <div class="milestone-text">Events Hub and community features added</div>
+                            </div>
+                            <div class="milestone">
+                                <div class="milestone-year">2024</div>
+                                <div class="milestone-text">Comprehensive platform serving 100+ universities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Team</h2>
+                    <p>Dedicated volunteers working to strengthen the Nepali student community</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Development Team</h3>
+                        <p>Building and maintaining the platform</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Managers</h3>
+                        <p>Connecting with NSA chapters nationwide</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Events Coordinators</h3>
+                        <p>Organizing and promoting community events</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Volunteers</h3>
+                        <p>Supporting the network across universities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Submit Modal -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Your NSA Chapter</h3>
+                <button class="close-btn" onclick="closeSubmitForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="nsaForm">
+                    <div class="form-group">
+                        <label for="nsaName">NSA Name</label>
+                        <input type="text" id="nsaName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityName">University Name</label>
+                        <input type="text" id="universityName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City, State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="url" id="instagram" placeholder="https://instagram.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="url" id="facebook" placeholder="https://facebook.com/...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeSubmitForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-users"></i>
+                        <span>NSA Network</span>
+                    </div>
+                    <p>Connecting Nepali students across American universities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Find NSA</a></li>
+                        <li><a href="map.html">Map View</a></li>
+                        <li><a href="events.html">Events Hub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

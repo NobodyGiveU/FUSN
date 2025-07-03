@@ -24,22 +24,13 @@
                 </div>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link active">Home</a>
+                        <a href="index.html" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#search" class="nav-link">Find NSA</a>
+                        <a href="about.html" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#map" class="nav-link">Map View</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="events.html" class="nav-link">Events Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
                     </li>
                 </ul>
                 <div class="nav-actions">
@@ -48,7 +39,7 @@
                         Add NSA
                     </button>
                 </div>
-                <div class="hamburger">
+                <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -56,6 +47,75 @@
             </div>
         </nav>
     </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
     <main>
         <!-- Hero Section -->
@@ -103,14 +163,14 @@
                             </div>
                         </div>
                         <div class="hero-actions">
-                            <button class="btn btn-primary btn-large" onclick="scrollToSearch()">
+                            <a href="search.html" class="btn btn-primary btn-large">
                                 <i class="fas fa-search"></i>
                                 Find Your NSA
-                            </button>
-                            <button class="btn btn-secondary btn-large" onclick="scrollToMap()">
+                            </a>
+                            <a href="map.html" class="btn btn-secondary btn-large">
                                 <i class="fas fa-map"></i>
                                 View Map
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="hero-visual">
@@ -133,81 +193,7 @@
             </div>
         </section>
 
-        <!-- Search Section -->
-        <section id="search" class="search-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Find Your NSA Chapter</h2>
-                    <p>Search by university name, location, or browse by state to find your local Nepali student community</p>
-                </div>
-                
-                <div class="search-container">
-                    <div class="search-filters">
-                        <div class="filter-group">
-                            <label for="searchInput">Search Universities</label>
-                            <div class="search-input-wrapper">
-                                <i class="fas fa-search"></i>
-                                <input type="text" id="searchInput" placeholder="Enter university name..." list="universityList">
-                                <datalist id="universityList"></datalist>
-                            </div>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="stateFilter">Filter by State</label>
-                            <select id="stateFilter">
-                                <option value="">All States</option>
-                            </select>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <label for="sortBy">Sort By</label>
-                            <select id="sortBy">
-                                <option value="name">Name A-Z</option>
-                                <option value="name-desc">Name Z-A</option>
-                                <option value="state">State</option>
-                                <option value="social">Most Social</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="search-results">
-                        <div class="results-header">
-                            <div class="results-info">
-                                <span id="resultsCount">0</span> NSA chapters found
-                            </div>
-                            <div class="view-controls">
-                                <button class="view-btn active" data-view="grid">
-                                    <i class="fas fa-th"></i>
-                                </button>
-                                <button class="view-btn" data-view="list">
-                                    <i class="fas fa-list"></i>
-                                </button>
-                                <button class="view-btn" data-view="map">
-                                    <i class="fas fa-map"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="results-container">
-                            <div id="nsaGrid" class="nsa-grid active"></div>
-                            <div id="nsaList" class="nsa-list"></div>
-                            <div id="nsaMap" class="nsa-map"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Map Section -->
-        <section id="map" class="map-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>NSA Chapters Map</h2>
-                    <p>Explore Nepali Student Associations across the United States</p>
-                </div>
-                <div id="mapContainer" class="map-container"></div>
-            </div>
-        </section>
 
         <!-- Popular Universities -->
         <section class="popular-section">
@@ -217,6 +203,305 @@
                     <p>Quick access to some of the most active NSA chapters</p>
                 </div>
                 <div id="popularGrid" class="popular-grid"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What We Offer</h2>
+                    <p>Comprehensive tools and resources to connect and empower the Nepali student community</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Easy Discovery</h3>
+                        <p>Find NSA chapters at universities nationwide with our comprehensive search and filtering tools.</p>
+                        <a href="search.html" class="feature-link">Explore Search <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Visual Map</h3>
+                        <p>Explore NSA locations geographically with our interactive map view.</p>
+                        <a href="map.html" class="feature-link">View Map <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Events Hub</h3>
+                        <p>Discover and participate in competitions, cultural events, and community gatherings.</p>
+                        <a href="events.html" class="feature-link">Browse Events <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Community Growth</h3>
+                        <p>Help expand the network by adding new NSA chapters to our database.</p>
+                        <button class="feature-link" onclick="openSubmitForm()">Add NSA <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="quick-actions">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                    <p>Get started with the most common tasks</p>
+                </div>
+                
+                <div class="actions-grid">
+                    <a href="search.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Find NSA Chapter</h3>
+                        <p>Search for NSA chapters at your university or nearby institutions</p>
+                    </a>
+                    
+                    <a href="map.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <h3>View Interactive Map</h3>
+                        <p>Explore NSA locations across the United States on our interactive map</p>
+                    </a>
+                    
+                    <a href="events.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <h3>Browse Events</h3>
+                        <p>Discover upcoming competitions, cultural nights, and community events</p>
+                    </a>
+                    
+                    <a href="about.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h3>Learn More</h3>
+                        <p>Find out about our mission, team, and how we support the community</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mentorship Promo -->
+        <section class="mentorship-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>Mentorship Directory</h2>
+                        <p>Connect with experienced students and alumni who can guide you through your academic and personal journey. Find mentors who understand your challenges and can provide valuable support and advice.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Find Mentors</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-handshake"></i>
+                                <span>Get Guidance</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-plus"></i>
+                                <span>Become a Mentor</span>
+                            </div>
+                        </div>
+                        <a href="mentorship.html" class="btn btn-primary">
+                            <i class="fas fa-users"></i>
+                            Explore Mentorship
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scholarships Promo -->
+        <section class="scholarships-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>Scholarship & Funding Opportunities</h2>
+                        <p>Discover scholarships, grants, and financial aid programs specifically designed for Nepali students and international scholars. Find opportunities to fund your education and reduce financial burden.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-search"></i>
+                                <span>Search & Filter</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-calendar"></i>
+                                <span>Deadline Tracking</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Submit Opportunities</span>
+                            </div>
+                        </div>
+                        <a href="scholarships.html" class="btn btn-primary">
+                            <i class="fas fa-graduation-cap"></i>
+                            Browse Scholarships
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni Spotlight Promo -->
+        <section class="alumni-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>Success Stories & Alumni Spotlight</h2>
+                        <p>Discover inspiring journeys of NSA alumni who are making a difference around the world. From tech leaders to healthcare professionals, entrepreneurs to researchers - see how our community members are achieving their dreams.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-star"></i>
+                                <span>Featured Alumni Stories</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-search"></i>
+                                <span>Search & Filter</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Share Your Journey</span>
+                            </div>
+                        </div>
+                        <a href="alumni.html" class="btn btn-primary">
+                            <i class="fas fa-users"></i>
+                            Explore Alumni Stories
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Updates Promo -->
+        <section class="news-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>NSA News & Announcements</h2>
+                        <p>Stay informed about the latest news, updates, and announcements from NSA chapters nationwide. Get real-time updates on events, achievements, and community happenings.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Latest News</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-bell"></i>
+                                <span>Stay Updated</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Share Stories</span>
+                            </div>
+                        </div>
+                        <a href="news.html" class="btn btn-primary">
+                            <i class="fas fa-newspaper"></i>
+                            Read Latest News
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter Map Promo -->
+        <section class="chapter-map-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>NSA Chapters Across the USA</h2>
+                        <p>Discover and connect with Nepalese Student Associations at universities nationwide through our interactive chapter map. Find chapters by location, search by university, and explore detailed profiles.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Interactive Map</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-search"></i>
+                                <span>Search & Filter</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-plus"></i>
+                                <span>Submit Your Chapter</span>
+                            </div>
+                        </div>
+                        <a href="chapter-map.html" class="btn btn-primary">
+                            <i class="fas fa-map"></i>
+                            Explore Chapter Map
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Center Promo -->
+        <section class="resources-promo">
+            <div class="container">
+                <div class="promo-content">
+                    <div class="promo-text">
+                        <h2>Centralized Resource Center</h2>
+                        <p>Access essential guides, tools, and resources to support your journey as an international student. From visa information to mental health support, find everything you need in one comprehensive resource hub.</p>
+                        <div class="promo-features">
+                            <div class="promo-feature">
+                                <i class="fas fa-book"></i>
+                                <span>8 Resource Categories</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-search"></i>
+                                <span>Search & Filter</span>
+                            </div>
+                            <div class="promo-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Submit Resources</span>
+                            </div>
+                        </div>
+                        <a href="resources.html" class="btn btn-primary">
+                            <i class="fas fa-book"></i>
+                            Explore Resources
+                        </a>
+                    </div>
+                    <div class="promo-visual">
+                        <div class="promo-image">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -263,61 +548,7 @@
             </div>
         </section>
 
-        <!-- Events Hub Promotion Section -->
-        <section class="events-promotion">
-            <div class="container">
-                <div class="promotion-content">
-                    <div class="promotion-text">
-                        <h2><i class="fas fa-calendar-alt"></i> NSA Events Hub</h2>
-                        <p>Discover and participate in competitions, cultural nights, sports tournaments, and community gatherings hosted by NSA chapters nationwide. Connect with fellow Nepali students through exciting events!</p>
-                        <div class="promotion-features">
-                            <div class="feature-item">
-                                <i class="fas fa-trophy"></i>
-                                <span>Competitions</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-music"></i>
-                                <span>Cultural Nights</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-futbol"></i>
-                                <span>Sports Events</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-users"></i>
-                                <span>Community Gatherings</span>
-                            </div>
-                        </div>
-                        <div class="promotion-actions">
-                            <a href="events.html" class="btn btn-primary">
-                                <i class="fas fa-calendar"></i>
-                                Explore Events
-                            </a>
-                            <a href="events.html" class="btn btn-secondary">
-                                <i class="fas fa-plus"></i>
-                                Submit Event
-                            </a>
-                        </div>
-                    </div>
-                    <div class="promotion-visual">
-                        <div class="events-preview">
-                            <div class="event-preview-card">
-                                <i class="fas fa-trophy"></i>
-                                <span>Cultural Night</span>
-                            </div>
-                            <div class="event-preview-card">
-                                <i class="fas fa-music"></i>
-                                <span>Cricket Tournament</span>
-                            </div>
-                            <div class="event-preview-card">
-                                <i class="fas fa-futbol"></i>
-                                <span>Dance Competition</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Contact Section -->
         <section id="contact" class="contact-section">

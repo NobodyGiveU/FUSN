@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralized Resource Center - NSA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resources.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">NSA Directory</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link active">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Centralized Resource Center</h1>
+                <p class="hero-subtitle">Essential guides, tools, and resources to support your journey as an international student.</p>
+                <div class="hero-search">
+                    <input type="text" id="resourceSearch" placeholder="Search resources..." class="search-input">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Main Content Area -->
+            <div class="main-content-area">
+                <!-- Resource Categories Grid -->
+                <section class="resource-categories">
+                    <h2 class="section-title">Resource Categories</h2>
+                    <div class="categories-grid" id="categoriesGrid">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Featured Resources -->
+                <section class="featured-resources">
+                    <h2 class="section-title">Featured Resources</h2>
+                    <div class="featured-grid" id="featuredGrid">
+                        <!-- Featured resources will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="faq-section">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <div class="faq-container" id="faqContainer">
+                        <!-- FAQ items will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="cta-section">
+                    <div class="cta-content">
+                        <h2>Have a Resource to Share?</h2>
+                        <p>Help fellow students by suggesting helpful resources, guides, or tools that have helped you in your journey.</p>
+                        <button class="cta-btn" id="suggestResourceBtn">
+                            <i class="fas fa-plus"></i>
+                            Suggest a Resource
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Quick Links Sidebar -->
+            <aside class="quick-links-sidebar">
+                <h3>Quick Links</h3>
+                <div class="quick-links" id="quickLinks">
+                    <!-- Quick links will be populated by JavaScript -->
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Resource Detail Modal -->
+    <div class="modal" id="resourceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Resource Details</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggest Resource Modal -->
+    <div class="modal" id="suggestModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Suggest a Resource</h3>
+                <button class="close-modal" id="closeSuggestModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="suggestForm" class="suggest-form">
+                    <div class="form-group">
+                        <label for="resourceTitle">Resource Title *</label>
+                        <input type="text" id="resourceTitle" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resourceCategory">Category *</label>
+                        <select id="resourceCategory" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="visa">Visa & Immigration</option>
+                            <option value="housing">Housing & Accommodation</option>
+                            <option value="health">Health & Insurance</option>
+                            <option value="academic">Academic Success</option>
+                            <option value="financial">Financial Resources</option>
+                            <option value="mental-health">Mental Health Support</option>
+                            <option value="career">Career Development</option>
+                            <option value="community">Community & Culture</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="resourceDescription">Description *</label>
+                        <textarea id="resourceDescription" name="description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="resourceUrl">URL (if applicable)</label>
+                        <input type="url" id="resourceUrl" name="url">
+                    </div>
+                    <div class="form-group">
+                        <label for="resourceFile">File Upload (PDF, DOC, etc.)</label>
+                        <input type="file" id="resourceFile" name="file" accept=".pdf,.doc,.docx,.txt">
+                    </div>
+                    <div class="form-group">
+                        <label for="submitterName">Your Name</label>
+                        <input type="text" id="submitterName" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="submitterEmail">Your Email</label>
+                        <input type="email" id="submitterEmail" name="email">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelSuggest">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Resource</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Nepalese Student Association Directory. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="resources.js"></script>
+</body>
+</html> 

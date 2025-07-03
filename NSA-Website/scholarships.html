@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship & Funding Opportunities - NSA Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="nsa-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h2>NSA Network</h2>
+                        <span>Nepali Student Associations</span>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openSubmitForm()">
+                        <i class="fas fa-plus"></i>
+                        Add NSA
+                    </button>
+                </div>
+                <div class="hamburger" onclick="toggleSidebar()" title="Open Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title">NSA Network</h3>
+            <button class="sidebar-close" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="search.html" class="sidebar-link">
+                    <i class="fas fa-search"></i>
+                    Find NSA
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="map.html" class="sidebar-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    Map View
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="chapter-map.html" class="sidebar-link">
+                    <i class="fas fa-map"></i>
+                    Chapter Map
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="events.html" class="sidebar-link">
+                    <i class="fas fa-calendar-alt"></i>
+                    Events Hub
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="alumni.html" class="sidebar-link">
+                    <i class="fas fa-user-graduate"></i>
+                    Alumni Spotlight
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="scholarships.html" class="sidebar-link active">
+                    <i class="fas fa-award"></i>
+                    Scholarships
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="mentorship.html" class="sidebar-link">
+                    <i class="fas fa-hands-helping"></i>
+                    Mentorship
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="resources.html" class="sidebar-link">
+                    <i class="fas fa-book"></i>
+                    Resource Center
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="news.html" class="sidebar-link">
+                    <i class="fas fa-newspaper"></i>
+                    News & Updates
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="scholarship-hero">
+            <div class="hero-background">
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Scholarship & <span class="highlight">Funding Opportunities</span>
+                        </h1>
+                        <p class="hero-description">
+                            Explore scholarships, grants, and financial aid programs to support your academic journey. 
+                            Find opportunities specifically designed for Nepali students and international scholars 
+                            pursuing education in the United States.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalScholarships">0</span>
+                                    <span class="stat-label">Available Scholarships</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="totalFunding">$0</span>
+                                    <span class="stat-label">Total Funding</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number" id="upcomingDeadlines">0</span>
+                                    <span class="stat-label">Upcoming Deadlines</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large" onclick="openScholarshipForm()">
+                                <i class="fas fa-plus"></i>
+                                Submit a Scholarship
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="scrollToScholarships()">
+                                <i class="fas fa-search"></i>
+                                Browse Scholarships
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="floating-elements">
+                            <div class="floating-card" data-delay="0">
+                                <i class="fas fa-star"></i>
+                                <span>Merit-Based</span>
+                            </div>
+                            <div class="floating-card" data-delay="1">
+                                <i class="fas fa-heart"></i>
+                                <span>Need-Based</span>
+                            </div>
+                            <div class="floating-card" data-delay="2">
+                                <i class="fas fa-trophy"></i>
+                                <span>Achievement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Scholarships Section -->
+        <section class="featured-scholarships">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Scholarships</h2>
+                    <p>Priority opportunities with upcoming deadlines</p>
+                </div>
+                
+                <div class="featured-grid" id="featuredScholarships">
+                    <!-- Featured scholarships will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filters Section -->
+        <section class="search-filters-section">
+            <div class="container">
+                <div class="search-filters-container">
+                    <div class="search-group">
+                        <label for="scholarshipSearch">Search Scholarships</label>
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="scholarshipSearch" placeholder="Search by name, university, or keywords...">
+                        </div>
+                    </div>
+                    
+                    <div class="filters-group">
+                        <div class="filter-item">
+                            <label for="stateFilter">State</label>
+                            <select id="stateFilter">
+                                <option value="">All States</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="universityFilter">University</label>
+                            <select id="universityFilter">
+                                <option value="">All Universities</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="amountFilter">Award Amount</label>
+                            <select id="amountFilter">
+                                <option value="">All Amounts</option>
+                                <option value="0-5000">$0 - $5,000</option>
+                                <option value="5000-10000">$5,000 - $10,000</option>
+                                <option value="10000-25000">$10,000 - $25,000</option>
+                                <option value="25000+">$25,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-item">
+                            <label for="deadlineFilter">Deadline Month</label>
+                            <select id="deadlineFilter">
+                                <option value="">All Months</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Section -->
+        <section class="main-content-section">
+            <div class="container">
+                <div class="content-layout">
+                    <!-- Scholarships Directory -->
+                    <div class="scholarships-main">
+                        <div class="section-header">
+                            <h2>All Scholarships</h2>
+                            <p>Comprehensive list of available funding opportunities</p>
+                        </div>
+                        
+                        <div class="results-info">
+                            <span id="scholarshipResultsCount">0</span> scholarships found
+                        </div>
+                        
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" onclick="switchView('grid')">
+                                <i class="fas fa-th"></i>
+                                Grid View
+                            </button>
+                            <button class="view-btn" data-view="list" onclick="switchView('list')">
+                                <i class="fas fa-list"></i>
+                                List View
+                            </button>
+                        </div>
+                        
+                        <div class="scholarships-grid" id="scholarshipsGrid">
+                            <!-- Scholarships will be populated here -->
+                        </div>
+                        
+                        <div class="scholarships-list" id="scholarshipsList" style="display: none;">
+                            <!-- List view will be populated here -->
+                        </div>
+                        
+                        <div class="load-more-container">
+                            <button class="btn btn-secondary" id="loadMoreBtn" onclick="loadMoreScholarships()">
+                                <i class="fas fa-plus"></i>
+                                Load More Scholarships
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar with Guides and Tips -->
+                    <div class="scholarships-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Application Guides</h3>
+                            <div class="guide-cards">
+                                <div class="guide-card">
+                                    <div class="guide-icon">
+                                        <i class="fas fa-pen-fancy"></i>
+                                    </div>
+                                    <h4>Writing Personal Statements</h4>
+                                    <p>Tips for crafting compelling personal statements that stand out to scholarship committees.</p>
+                                    <a href="#" class="guide-link">Read Guide</a>
+                                </div>
+                                
+                                <div class="guide-card">
+                                    <div class="guide-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <h4>Application Checklist</h4>
+                                    <p>Essential documents and requirements for scholarship applications.</p>
+                                    <a href="#" class="guide-link">View Checklist</a>
+                                </div>
+                                
+                                <div class="guide-card">
+                                    <div class="guide-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h4>Timeline Planning</h4>
+                                    <p>How to plan your scholarship applications throughout the year.</p>
+                                    <a href="#" class="guide-link">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h3>External Resources</h3>
+                            <div class="resource-links">
+                                <a href="https://www.fastweb.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Fastweb Scholarships
+                                </a>
+                                <a href="https://www.scholarships.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Scholarships.com
+                                </a>
+                                <a href="https://www.cappex.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Cappex Scholarships
+                                </a>
+                                <a href="https://www.iefa.org" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    International Education Financial Aid
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <h3>Quick Tips</h3>
+                            <div class="tips-list">
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Start early - many scholarships have early deadlines</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Apply to multiple scholarships to increase your chances</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Keep copies of all application materials</span>
+                                </div>
+                                <div class="tip-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Follow up on applications you've submitted</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="scholarship-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Know of a Scholarship?</h2>
+                        <p>Help fellow Nepali students by sharing scholarship opportunities you've discovered. Your contribution can make a significant difference in someone's educational journey.</p>
+                        <div class="cta-features">
+                            <div class="cta-feature">
+                                <i class="fas fa-share"></i>
+                                <span>Share Opportunities</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Help Community</span>
+                            </div>
+                            <div class="cta-feature">
+                                <i class="fas fa-heart"></i>
+                                <span>Make Impact</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-action">
+                        <button class="btn btn-primary btn-large" onclick="openScholarshipForm()">
+                            <i class="fas fa-plus"></i>
+                            Submit a Scholarship
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scholarship Submission Modal -->
+    <div id="scholarshipModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Submit a Scholarship Opportunity</h3>
+                <button class="close-btn" onclick="closeScholarshipForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="scholarshipForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scholarshipName">Scholarship Name *</label>
+                            <input type="text" id="scholarshipName" name="scholarshipName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="awardAmount">Award Amount *</label>
+                            <input type="text" id="awardAmount" name="awardAmount" placeholder="e.g., $5,000 or Full Tuition" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eligibleUniversities">Eligible Universities or States</label>
+                            <input type="text" id="eligibleUniversities" name="eligibleUniversities" placeholder="e.g., All Texas universities or MIT, Stanford">
+                        </div>
+                        <div class="form-group">
+                            <label for="applicationDeadline">Application Deadline *</label>
+                            <input type="date" id="applicationDeadline" name="applicationDeadline" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eligibilityCriteria">Eligibility Criteria *</label>
+                        <textarea id="eligibilityCriteria" name="eligibilityCriteria" rows="6" required 
+                                  placeholder="Describe who is eligible for this scholarship, including academic requirements, citizenship, field of study, etc..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="applicationLink">Application Link</label>
+                            <input type="url" id="applicationLink" name="applicationLink" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Contact Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" placeholder="scholarship@university.edu">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" name="additionalInfo" rows="4" 
+                                  placeholder="Any additional details, requirements, or notes about this scholarship..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeScholarshipForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Scholarship
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scholarship Detail Modal -->
+    <div id="scholarshipDetailModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="scholarshipDetailTitle">Scholarship Details</h3>
+                <button class="close-btn" onclick="closeScholarshipDetail()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="scholarshipDetailContent">
+                <!-- Scholarship details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Modal (for NSA submissions) -->
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Your NSA Chapter</h3>
+                <button class="close-btn" onclick="closeSubmitForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="nsaForm">
+                    <div class="form-group">
+                        <label for="nsaName">NSA Name</label>
+                        <input type="text" id="nsaName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="universityName">University Name</label>
+                        <input type="text" id="universityName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City, State" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="url" id="instagram" placeholder="https://instagram.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="facebook">Facebook</label>
+                        <input type="url" id="facebook" placeholder="https://facebook.com/...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeSubmitForm()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nsa-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-users"></i>
+                        <span>NSA Network</span>
+                    </div>
+                    <p>Connecting Nepali students across American universities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Find NSA</a></li>
+                        <li><a href="map.html">Map View</a></li>
+                        <li><a href="events.html">Events Hub</a></li>
+                        <li><a href="alumni.html">Alumni Spotlight</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 NSA Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scholarships.js"></script>
+</body>
+</html> 

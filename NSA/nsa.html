@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSA Chapters - FUSN</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>FUSN</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nsa.html" class="nav-link active">NSA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../submit.html" class="nav-link">Submit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../explore.html" class="nav-link">Explore Universities</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="nsa-main">
+        <div class="nsa-container">
+            <!-- Hero Section -->
+            <div class="nsa-hero">
+                <div class="hero-content">
+                    <h1>Nepali Student Associations</h1>
+                    <p>Connect with Nepali student communities across U.S. universities. Find your university's NSA chapter, get in touch with fellow students, and join the community.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalNSAs">0</span>
+                            <span class="stat-label">NSA Chapters</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalStates">0</span>
+                            <span class="stat-label">States</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalUniversities">0</span>
+                            <span class="stat-label">Universities</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-heart"></i>
+                            <span>Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Search Section -->
+            <div class="search-section">
+                <div class="search-card">
+                    <div class="search-header">
+                        <h2><i class="fas fa-search"></i> Find Your NSA Chapter</h2>
+                        <p>Search by university name, NSA name, or location to find your local Nepali student community</p>
+                    </div>
+                    <div class="search-input-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-university search-icon"></i>
+                            <input type="text" id="universitySearch" placeholder="Search for your university..." class="search-input" list="nsaOptions" autocomplete="off">
+                            <datalist id="nsaOptions">
+                                <!-- Options will be populated by JavaScript -->
+                            </datalist>
+                        </div>
+                        <button type="button" id="searchBtn" class="search-btn">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                    <div class="search-tips">
+                        <div class="tip-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Try searching by university name, state, or abbreviation</span>
+                        </div>
+                        <div class="tip-item">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span>Use the dropdown to browse all available NSA chapters</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <div class="results-header">
+                    <div class="results-summary" id="resultsSummary">
+                        <div class="summary-content">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Search for a university to find its NSA chapter</span>
+                        </div>
+                    </div>
+                    <div class="view-toggle">
+                        <button type="button" id="gridView" class="view-btn active">
+                            <i class="fas fa-th"></i>
+                            <span>Grid</span>
+                        </button>
+                        <button type="button" id="listView" class="view-btn">
+                            <i class="fas fa-list"></i>
+                            <span>List</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="nsa-grid" id="nsaGrid">
+                    <!-- NSA cards will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Enhanced Popular Universities Section -->
+            <div class="popular-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Popular Universities</h2>
+                    <p>Quick access to some of the most active NSA chapters</p>
+                </div>
+                <div class="popular-grid">
+                    <!-- Popular cards will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Call to Action Section -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2>Don't See Your University?</h2>
+                    <p>If your university doesn't have an NSA chapter listed, you can help create one! Contact us to learn how to start a Nepali Student Association at your campus.</p>
+                    <div class="cta-buttons">
+                        <a href="../submit.html" class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Submit New NSA
+                        </a>
+                        <a href="mailto:contact@fusn.org" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FUSN - Foreign University Student Network. Helping Nepali students achieve their dreams.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // NSA Data - Loaded from JSON file
+        let nsaData = [];
+
+        // Initialize the NSA page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNSAData();
+        });
+
+        function loadNSAData() {
+            fetch('nsa_data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('NSA data loaded:', data.length, 'entries');
+                    if (Array.isArray(data)) {
+                        nsaData = data;
+                    } else {
+                        console.error('Invalid data format - expected array');
+                        nsaData = [];
+                    }
+                    initializeNSAPage();
+                })
+                .catch(error => {
+                    console.error('Error loading NSA data:', error);
+                    // Fallback to empty array
+                    nsaData = [];
+                    initializeNSAPage();
+                });
+        }
+
+        function initializeNSAPage() {
+            const searchInput = document.getElementById('universitySearch');
+            const searchBtn = document.getElementById('searchBtn');
+            const gridViewBtn = document.getElementById('gridView');
+            const listViewBtn = document.getElementById('listView');
+            const nsaGrid = document.getElementById('nsaGrid');
+            const resultsSummary = document.getElementById('resultsSummary');
+
+            // Check if elements exist before proceeding
+            if (!searchInput || !searchBtn || !gridViewBtn || !listViewBtn || !nsaGrid || !resultsSummary) {
+                console.error('Required elements not found');
+                return;
+            }
+
+            // Update hero stats
+            updateHeroStats();
+
+            // Populate dropdown options
+            populateDropdownOptions();
+
+            // Search functionality
+            function performSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) {
+                    resultsSummary.innerHTML = `
+                        <div class="summary-content">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Search for a university to find its NSA chapter</span>
+                        </div>
+                    `;
+                    nsaGrid.innerHTML = '';
+                    return;
+                }
+
+                const filteredData = nsaData.filter(nsa => {
+                    const universityMatch = nsa.university.toLowerCase().includes(query);
+                    const nsaNameMatch = nsa.name.toLowerCase().includes(query);
+                    const locationMatch = nsa.location && nsa.location.toLowerCase().includes(query);
+                    
+                    // Also check for short names and abbreviations
+                    const shortName = getShortName(nsa.university).toLowerCase();
+                    const shortNameMatch = shortName.includes(query);
+                    
+                    return universityMatch || nsaNameMatch || locationMatch || shortNameMatch;
+                });
+
+                displayResults(filteredData);
+            }
+
+            // Display search results
+            function displayResults(data) {
+                if (data.length === 0) {
+                    resultsSummary.innerHTML = `
+                        <div class="summary-content">
+                            <i class="fas fa-search"></i>
+                            <span>No NSA chapters found for your search</span>
+                        </div>
+                    `;
+                    nsaGrid.innerHTML = `
+                        <div class="no-results">
+                            <div class="no-results-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>No Results Found</h3>
+                            <p>No Nepali Student Association found for your search. Try a different university name or check our popular universities below.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                resultsSummary.innerHTML = `
+                    <div class="summary-content">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Found <strong>${data.length}</strong> NSA chapter${data.length === 1 ? '' : 's'}</span>
+                    </div>
+                `;
+                
+                const isListView = listViewBtn.classList.contains('active');
+                nsaGrid.className = isListView ? 'nsa-list' : 'nsa-grid';
+                
+                nsaGrid.innerHTML = data.map(nsa => renderNSACard(nsa, isListView)).join('');
+            }
+
+            // Render NSA card with enhanced design
+            function renderNSACard(nsa, isListView = false) {
+                const shortName = getShortName(nsa.university);
+                const state = extractState(nsa.location);
+                const socialCount = countSocialLinks(nsa);
+                
+                if (isListView) {
+                    return `
+                        <div class="nsa-list-item">
+                            <div class="nsa-list-header">
+                                <div class="nsa-logo">${shortName}</div>
+                                <div class="nsa-info">
+                                    <h3>${nsa.name}</h3>
+                                    <p class="university-name">${nsa.university}</p>
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i> ${nsa.location || 'Location not specified'}</p>
+                                </div>
+                                <div class="nsa-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-link"></i>
+                                        <span>${socialCount} links</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nsa-list-content">
+                                <div class="nsa-contact">
+                                    <div class="contact-info">
+                                        ${nsa.president ? `<div class="contact-item">
+                                            <i class="fas fa-user"></i>
+                                            <span><strong>${nsa.president}</strong> (President)</span>
+                                        </div>` : ''}
+                                        ${nsa.email ? `<div class="contact-item">
+                                            <i class="fas fa-envelope"></i>
+                                            <a href="mailto:${nsa.email}">${nsa.email}</a>
+                                        </div>` : ''}
+                                        ${nsa.phone ? `<div class="contact-item">
+                                            <i class="fas fa-phone"></i>
+                                            <a href="tel:${nsa.phone}">${nsa.phone}</a>
+                                        </div>` : ''}
+                                    </div>
+                                    <div class="social-links">
+                                        ${renderSocialLinks(nsa)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="nsa-card">
+                        <div class="nsa-card-header">
+                            <div class="nsa-logo">${shortName}</div>
+                            <div class="nsa-badge">${state}</div>
+                        </div>
+                        <div class="nsa-card-body">
+                            <h3>${nsa.name}</h3>
+                            <p class="university-name">${nsa.university}</p>
+                            <p class="state"><i class="fas fa-map-marker-alt"></i> ${state}</p>
+                            
+                            <div class="nsa-contact">
+                                ${nsa.president ? `<div class="contact-person">
+                                    <i class="fas fa-user"></i>
+                                    <span><strong>${nsa.president}</strong> (President)</span>
+                                </div>` : ''}
+                                ${nsa.email ? `<div class="contact-email">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:${nsa.email}">${nsa.email}</a>
+                                </div>` : ''}
+                                ${nsa.phone ? `<div class="contact-phone">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:${nsa.phone}">${nsa.phone}</a>
+                                </div>` : ''}
+                            </div>
+                            
+                            <div class="social-links">
+                                ${renderSocialLinks(nsa)}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Helper function to render social links
+            function renderSocialLinks(nsa) {
+                const links = [];
+                if (nsa.facebook) links.push(`<a href="${nsa.facebook}" target="_blank" class="social-link facebook" title="Facebook"><i class="fab fa-facebook"></i></a>`);
+                if (nsa.instagram) links.push(`<a href="${nsa.instagram}" target="_blank" class="social-link instagram" title="Instagram"><i class="fab fa-instagram"></i></a>`);
+                if (nsa.youtube) links.push(`<a href="${nsa.youtube}" target="_blank" class="social-link youtube" title="YouTube"><i class="fab fa-youtube"></i></a>`);
+                if (nsa.tiktok) links.push(`<a href="${nsa.tiktok}" target="_blank" class="social-link tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>`);
+                if (nsa.linkedin) links.push(`<a href="${nsa.linkedin}" target="_blank" class="social-link linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>`);
+                if (nsa.twitter) links.push(`<a href="${nsa.twitter}" target="_blank" class="social-link twitter" title="Twitter"><i class="fab fa-twitter"></i></a>`);
+                if (nsa.discord) links.push(`<a href="${nsa.discord}" target="_blank" class="social-link discord" title="Discord"><i class="fab fa-discord"></i></a>`);
+                if (nsa.groupme) links.push(`<a href="${nsa.groupme}" target="_blank" class="social-link groupme" title="GroupMe"><i class="fas fa-users"></i></a>`);
+                if (nsa.linktree) links.push(`<a href="${nsa.linktree}" target="_blank" class="social-link linktree" title="LinkTree"><i class="fas fa-link"></i></a>`);
+                if (nsa.website) links.push(`<a href="${nsa.website}" target="_blank" class="social-link website" title="Website"><i class="fas fa-globe"></i></a>`);
+                return links.join('');
+            }
+
+            // Helper function to count social links
+            function countSocialLinks(nsa) {
+                let count = 0;
+                if (nsa.facebook) count++;
+                if (nsa.instagram) count++;
+                if (nsa.youtube) count++;
+                if (nsa.tiktok) count++;
+                if (nsa.linkedin) count++;
+                if (nsa.twitter) count++;
+                if (nsa.discord) count++;
+                if (nsa.groupme) count++;
+                if (nsa.linktree) count++;
+                if (nsa.website) count++;
+                return count;
+            }
+
+            // Update hero statistics
+            function updateHeroStats() {
+                const totalNSAs = nsaData.length;
+                const states = new Set(nsaData.map(nsa => extractState(nsa.location)).filter(state => state !== 'Location not specified'));
+                const universities = new Set(nsaData.map(nsa => nsa.university));
+
+                document.getElementById('totalNSAs').textContent = totalNSAs;
+                document.getElementById('totalStates').textContent = states.size;
+                document.getElementById('totalUniversities').textContent = universities.size;
+            }
+
+            // Helper function to extract short name from university name
+            function getShortName(universityName) {
+                const commonAbbreviations = {
+                    'University of Louisiana at Monroe': 'ULM',
+                    'University of Colorado Boulder': 'CU Boulder',
+                    'University of Maryland': 'UMD',
+                    'Columbia University': 'Columbia',
+                    'New York University': 'NYU',
+                    'UC Berkeley': 'Berkeley',
+                    'The University of Texas at Arlington': 'UTA',
+                    'University of Virginia': 'UVA',
+                    'Western Michigan University': 'WMU',
+                    'Youngstown State University': 'YSU',
+                    'The University of Alabama': 'UA',
+                    'The University of Iowa': 'UIOWA',
+                    'Howard University': 'HU',
+                    'Idaho State University': 'ISU',
+                    'Boston University': 'BU',
+                    'Wright State University': 'WSU',
+                    'University of Nevada Las Vegas': 'UNLV',
+                    'Denison University': 'DU',
+                    'Virginia Commonwealth University': 'VCU',
+                    'University of Nebraska–Lincoln': 'UNL',
+                    'Texas A&M University': 'TAMU',
+                    'University of Maryland, Baltimore County': 'UMBC',
+                    'Iowa State University': 'ISU',
+                    'The University of Vermont': 'UVM',
+                    'Miami University': 'Miami U',
+                    'St. Cloud State University': 'SCSU',
+                    'University of Illinois Chicago': 'UIC',
+                    'Cornell University': 'Cornell',
+                    'University of Connecticut': 'UConn',
+                    'Towson University': 'Towson',
+                    'George Mason University': 'GMU',
+                    'University of Washington': 'UW',
+                    'University of Kentucky': 'UKY',
+                    'Carleton University': 'Carleton',
+                    'Yale University': 'Yale',
+                    'University of North Texas': 'UNT',
+                    'George Washington University': 'GWU',
+                    'The Ohio State University': 'OSU',
+                    'New Jersey Institute of Technology': 'NJIT',
+                    'University of California, Davis': 'UC Davis',
+                    'Ohio University': 'OU',
+                    'Virginia Tech': 'VT',
+                    'Northeastern University': 'Northeastern',
+                    'Harvard University': 'Harvard',
+                    'University of Wisconsin, Madison': 'UW Madison',
+                    'University of South Dakota': 'USD',
+                    'Mississippi University for Women': 'MUW',
+                    'Mississippi State University': 'MSU',
+                    'University of Texas Tyler': 'UT Tyler'
+                };
+                
+                return commonAbbreviations[universityName] || universityName.split(' ').slice(0, 2).join(' ');
+            }
+
+            // Helper function to extract state from location
+            function extractState(location) {
+                if (!location) return 'Location not specified';
+                
+                const stateMatch = location.match(/([A-Z]{2}|[A-Za-z\s]+),?\s*(?:United States)?$/);
+                if (stateMatch) {
+                    return stateMatch[1].trim();
+                }
+                
+                // Try to extract from common patterns
+                const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+                
+                for (const state of states) {
+                    if (location.includes(state)) {
+                        return state;
+                    }
+                }
+                
+                return location.split(',').pop().trim();
+            }
+
+            // Populate dropdown options with all NSA organizations
+            function populateDropdownOptions() {
+                const datalist = document.getElementById('nsaOptions');
+                if (!datalist) return;
+
+                // Create options from NSA data, sorted alphabetically
+                const options = nsaData.map(nsa => {
+                    const shortName = getShortName(nsa.university);
+                    return {
+                        value: `${nsa.name} - ${nsa.university}`,
+                        label: `${nsa.name} (${shortName}) - ${nsa.university}`,
+                        university: nsa.university,
+                        nsaName: nsa.name
+                    };
+                }).sort((a, b) => a.value.localeCompare(b.value));
+
+                // Clear existing options
+                datalist.innerHTML = '';
+
+                // Add new options
+                options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.setAttribute('data-university', option.university);
+                    optionElement.setAttribute('data-nsa-name', option.nsaName);
+                    datalist.appendChild(optionElement);
+                });
+
+                console.log(`Populated dropdown with ${options.length} NSA options`);
+            }
+
+            // Event listeners
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Handle dropdown selection
+            searchInput.addEventListener('input', function(e) {
+                const selectedValue = e.target.value;
+                if (selectedValue) {
+                    // Check if this is a dropdown selection (contains " - ")
+                    if (selectedValue.includes(' - ')) {
+                        // Extract university name from dropdown selection
+                        const universityName = selectedValue.split(' - ')[1];
+                        // Update the input with just the university name
+                        searchInput.value = universityName;
+                    }
+                    
+                    // Auto-search when user selects from dropdown or types
+                    setTimeout(() => {
+                        performSearch();
+                    }, 100);
+                }
+            });
+
+            // View toggle
+            gridViewBtn.addEventListener('click', function() {
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                nsaGrid.className = 'nsa-grid';
+                // Re-render current results if any
+                if (searchInput.value.trim()) {
+                    performSearch();
+                }
+            });
+
+            listViewBtn.addEventListener('click', function() {
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+                nsaGrid.className = 'nsa-list';
+                // Re-render current results if any
+                if (searchInput.value.trim()) {
+                    performSearch();
+                }
+            });
+
+            // Popular university cards - update with actual universities from your data
+            const popularUniversities = [
+                'University of Louisiana at Monroe',
+                'University of Colorado Boulder', 
+                'University of Maryland',
+                'Columbia University',
+                'New York University',
+                'UC Berkeley',
+                'Harvard University',
+                'Yale University',
+                'Cornell University',
+                'University of Virginia',
+                'Texas A&M University',
+                'University of Washington'
+            ];
+
+            // Update popular cards with actual data
+            const popularGrid = document.querySelector('.popular-grid');
+            if (popularGrid) {
+                popularGrid.innerHTML = popularUniversities.map(uni => {
+                    const shortName = getShortName(uni);
+                    return `
+                        <div class="popular-card" data-university="${uni}">
+                            <div class="popular-logo">${shortName}</div>
+                            <h3>${shortName}</h3>
+                            <p>${uni}</p>
+                        </div>
+                    `;
+                }).join('');
+
+                // Add event listeners after creating the cards
+                popularGrid.querySelectorAll('.popular-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const universityName = this.getAttribute('data-university');
+                        if (searchInput) {
+                            searchInput.value = universityName;
+                            performSearch();
+                        }
+                    });
+                });
+            }
+
+            // Initialize navigation
+            initializeNavigation();
+        }
+    </script>
+</body>
+</html> 
