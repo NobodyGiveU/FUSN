@@ -310,7 +310,11 @@ class NSAWebsite {
     extractState(location) {
         if (!location) return '';
         const stateMatch = location.match(/, ([A-Za-z\s]+)(?:,|$)/);
-        return stateMatch ? stateMatch[1].trim() : '';
+        let state = stateMatch ? stateMatch[1].trim() : '';
+        // Normalize '0H' to 'OH' and handle common typos
+        if (state.toUpperCase() === '0H') state = 'OH';
+        if (state.toUpperCase() === 'OHIO') state = 'OH';
+        return state;
     }
 
     renderNSACards() {
